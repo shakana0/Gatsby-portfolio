@@ -1,13 +1,61 @@
 import styled from "styled-components";
 
 export const IndexStyling = styled.main`
-  .bgImg-wrapper {
+  /* .bg-img-wrapper {
+    display: grid;
+    border: 2px solid red;
+    overflow: visible;
+
+    .gatsby-image-wrapper {
+      grid-area: 1 / 1 / auto / auto;
+      border: 2px solid red;
+
+    }
+
+    .content-wrapper {
+      grid-area: 1 / 1 / auto / auto;
+      position: relative;
+      place-items: center;
+      display: grid;
+      h1{
+        color: red;
+      }
+    }
+  } */
+  /* .bg-image-wrapper {
+    overflow: visible;
+    height: fit-content;
+  } */
+  .gatsby-image-wrapper {
+    overflow: visible;
+    height: fit-content;
+    /* border: 2px solid red; */
+
+    div {
+      height: fit-content;
+    }
+    img {
+      height: auto;
+      /* position: static; */
+    }
+  }
+  .content-wrapper {
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    place-items: center;
+    color: red;
+  }
+
+  /* .bgImg-wrapper {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    h1{
+    h1 {
       padding: 0 1rem;
       text-align: center;
       font-size: 1.4rem;
@@ -16,7 +64,7 @@ export const IndexStyling = styled.main`
   }
   .gatsby-image-wrapper {
     width: 100%;
-  }
+  } */
   section {
     padding: 4rem 2rem;
     p {
@@ -29,8 +77,8 @@ export const IndexStyling = styled.main`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .bgImg-wrapper{
-      h1{
+    .bgImg-wrapper {
+      h1 {
         font-size: 2rem;
       }
     }
@@ -40,8 +88,8 @@ export const IndexStyling = styled.main`
   }
 
   @media (min-width: 900px) {
-    .bgImg-wrapper{  
-      h1{
+    .bgImg-wrapper {
+      h1 {
         font-size: 3.5rem;
         font-weight: 800;
       }

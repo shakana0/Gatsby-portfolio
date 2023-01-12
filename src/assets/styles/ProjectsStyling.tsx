@@ -32,7 +32,7 @@ export const ProjectsStyling = styled.main`
       .gatsby-image-wrapper{
         overflow: visible;
         img{
-          height: auto;
+          /* height: auto; */
         }
       }
 

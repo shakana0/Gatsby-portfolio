@@ -60,19 +60,10 @@ export const AllContactQury = graphql`
           pageName
           profileImage {
             gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
-
-            # file {
-            #   url
-            # }
-            # placeholderUrl
           }
           contactInformation {
             socialMediaIcon {
               gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
-              # file {
-              #   url
-              # }
-              # placeholderUrl
             }
             socialMediaLink
           }

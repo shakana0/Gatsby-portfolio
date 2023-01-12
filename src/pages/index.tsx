@@ -6,8 +6,8 @@ import { HomePageDataType, categoryData } from "../interface/pageInterface";
 import { Search } from "../components/Search";
 import { Layout } from "../components/Layout";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
-import { getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 
 type GraphQlResult = {
   allContentfulHomePage: {
@@ -16,7 +16,6 @@ type GraphQlResult = {
     }[];
   };
   allContentfulCategory?: {
-    distinct: [string]
     edges: {
       node: categoryData;
     }[];
@@ -34,23 +33,29 @@ const Context = () => {
 
 const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const homeData = data.allContentfulHomePage.edges[0];
-  console.log(data.allContentfulCategory?.distinct)
   //getImage is a function that makes the code easier to read.
   //It takes a File and returns file.childImageSharp.gatsbyImageData,
   //which will later be passed to the GatsbyImage component.
-  const backgroundImageStack = [
-    getImage(homeData.node.desktopHeroImage),
+  // const backgroundImageStack = [
+  //   getImage(homeData.node.desktopHeroImage),
+  //   {
+  //     ...getImage(homeData.node.mobileHeroImage),
+  //     media: `(max-width: 500px)`,
+  //   },
+  // ];
+
+  const images = withArtDirection(getImage(homeData.node.desktopHeroImage), [
     {
-      ...getImage(homeData.node.mobileHeroImage),
-      media: `(max-width: 500px)`,
+      media: "(max-width: 500px)",
+      image: getImage(homeData.node.mobileHeroImage),
     },
-  ];
+  ]);
 
   //saving categories in a varible
   const categories = data.allContentfulCategory?.edges;
   //mapping to get rid of the nodes in the array and any dublicates
   categories?.map((category) => {
-        // tempData.push(category);
+    // tempData.push(category);
 
     if (!tempData.includes(category)) {
       tempData.push(category.node);
@@ -61,9 +66,36 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
       <Context />
       <Search />
       <IndexStyling>
-        <BgImage image={backgroundImageStack} className="bgImg-wrapper">
+      {/* <div className="bg-image-wrapper" style={{ display: "grid" }}> */}
+
+        <div className="bg-image-wrapper">
+          <GatsbyImage
+          className="gatsby-img"
+            // style={{
+            //   gridArea: "1/1",
+            // }}
+            layout="fullWidth"
+            alt="Hero Image"
+            image={getImage(images)}
+          />
+          <div
+            className="content-wrapper"
+            // style={{
+            //   // By using the same grid area for both, they are stacked on top of each other
+            //   gridArea: "1/1",
+            //   position: "relative",
+            //   // This centers the other elements inside the hero component
+            //   placeItems: "center",
+            //   display: "grid",
+            // }}
+          >
+            {/* Any content here will be centered in the component */}
+            <h1>Hero text</h1>
+          </div>
+        </div>
+        {/* <BgImage image={backgroundImageStack} className="bgImg-wrapper">
           <h1>{homeData.node.heading}</h1>
-        </BgImage>
+        </BgImage> */}
 
         {/* 
         <picture>
@@ -126,41 +158,20 @@ export const AllHomeQury = graphql`
         node {
           heading
           desktopHeroImage {
-            # placeholderUrl
             gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
           }
           mobileHeroImage {
-            # placeholderUrl
             gatsbyImageData(
               formats: [JPG, WEBP, AVIF]
               placeholder: BLURRED
               height: 1440
             )
           }
-          # mobileHeroImage {
-          #   file {
-          #     url
-          #   }
-          #   placeholderUrl
-          #   gatsbyImage(formats: WEBP, width: 500, outputPixelDensities: [1, 1])
-          # }
-          # desktopHeroImage {
-          #   file {
-          #     url
-          #   }
-          #   placeholderUrl
-          #   gatsbyImage(
-          #     formats: WEBP
-          #     width: 1263
-          #     outputPixelDensities: [1, 1]
-          #   )
-          # }
           presentationText
         }
       }
     }
     allContentfulCategory {
-      distinct(field: {categoryName: SELECT})
       edges {
         node {
           categoryName

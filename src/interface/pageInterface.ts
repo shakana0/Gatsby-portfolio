@@ -147,7 +147,6 @@ export interface projectDataType {
 
 //ContentfulCategory interface
 export interface categoryData {
-  distinct: [string]
   categoryName: string;
   slug: string;
   project: [
