@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap");
+html,
+body {
+    margin: 0;
+    padding: 0;
+    /* scroll-behavior: smooth; */
+
+    color: white;
+}
+main{
+    background-color: black;
+}
+h1,
+h2,
+h3 {
+    font-family: "Roboto Slab", serif, sans-serif;
+}
+
+p,
+li,
+a {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+p{
+    line-height: 1.8;
+}
