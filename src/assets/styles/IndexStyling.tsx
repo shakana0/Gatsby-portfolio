@@ -25,6 +25,7 @@ export const IndexStyling = styled.main`
   /* .bg-image-wrapper {
     overflow: visible;
     height: fit-content;
+    fdj
   } */
   .gatsby-image-wrapper {
     overflow: visible;
