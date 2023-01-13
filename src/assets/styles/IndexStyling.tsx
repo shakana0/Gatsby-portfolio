@@ -1,27 +1,6 @@
 import styled from "styled-components";
 
 export const IndexStyling = styled.main`
-  /* .bg-img-wrapper {
-    display: grid;
-    border: 2px solid red;
-    overflow: visible;
-
-    .gatsby-image-wrapper {
-      grid-area: 1 / 1 / auto / auto;
-      border: 2px solid red;
-
-    }
-
-    .content-wrapper {
-      grid-area: 1 / 1 / auto / auto;
-      position: relative;
-      place-items: center;
-      display: grid;
-      h1{
-        color: red;
-      }
-    }
-  } */
   .bg-image-wrapper {
     min-height: 100vh;
   }
@@ -41,7 +20,7 @@ export const IndexStyling = styled.main`
     flex-direction: column;
     h1{
      margin-bottom: 0;
-     font-size: 1.3rem;
+     font-size: 1.4rem;
     }
     p{
       margin: 4rem 0 0 0;

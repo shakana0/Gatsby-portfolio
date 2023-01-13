@@ -17,6 +17,7 @@ export const SingleProjectStyling = styled.main`
       overflow: visible;
         img{
           height: auto;
+          width: 100%;
         }
     }
     p {

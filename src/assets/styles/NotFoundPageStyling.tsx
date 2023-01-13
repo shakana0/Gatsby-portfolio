@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const NotFoundPageStyling = styled.main`
 background-color: #5a5a5a;
-height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;

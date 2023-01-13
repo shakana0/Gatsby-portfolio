@@ -3,7 +3,7 @@ import type { HeadFC, PageProps } from "gatsby";
 import { IndexStyling } from "../assets/styles/IndexStyling";
 import { graphql } from "gatsby";
 import { HomePageDataType, categoryData } from "../interface/pageInterface";
-import { Search } from "../components/Search";
+// import { Search } from "../components/Search";
 import { Layout } from "../components/Layout";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
 import { BgImage } from "gbimage-bridge";
@@ -63,7 +63,7 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   return (
     <Layout>
       <Context />
-      <Search />
+      {/* <Search /> */}
       <IndexStyling>
       <div className="bg-image-wrapper" style={{ display: "grid" }}>
         {/* <div className="bg-image-wrapper"> */}

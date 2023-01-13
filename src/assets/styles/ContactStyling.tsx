@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const ContactStyling = styled.main`
   padding: 2rem;
-  min-height: 100vh;
+
+  h1{
+    text-align: center;
+  }
 
   .profile-img-container {
     display: flex;

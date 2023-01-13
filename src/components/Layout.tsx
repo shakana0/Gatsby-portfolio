@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav } from "./Nav";
+import { Search } from "./Search";
 import { GlobalContextProvider } from "../context/GlobalContextProviser";
 import styled from "styled-components";
 
@@ -21,6 +22,7 @@ export const Layout = ({ children }: childrenProps) => {
   return (
     <GlobalContextProvider>
       <Nav />
+      <Search/>
       <>{children}</>
       {/* <main>{children}</main> */}
       <FooterStyling>
