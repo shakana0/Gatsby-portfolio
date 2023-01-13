@@ -30,9 +30,6 @@ export const ContactStyling = styled.main`
       img {
         padding-right: 1rem;
       }
-      a {
-        align-self: flex-end;
-      }
     }
   }
 

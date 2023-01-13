@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
-export const SearchStyling = styled.nav`
-  background-color: #343444;
+export const CategoryNavStyling = styled.nav`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: center;
   padding: 1rem 0;
 
   .dropdown {
@@ -17,7 +15,6 @@ export const SearchStyling = styled.nav`
       align-items: center;
       justify-content: space-evenly;
       width: 100%;
-      /* padding: 0 1rem; */
       cursor: pointer;
       border: 1.5px solid #b30000;
       border-radius: 5px;
@@ -71,44 +68,16 @@ export const SearchStyling = styled.nav`
     }
   }
 
-  .searchbar {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    border: 1.5px solid #b30000;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 0 0.5rem;
-    input {
-      width: 100%;
-      background-color: transparent;
-      border: none;
-      padding: 0.8rem 0.4rem;
-      color: white;
-      font-size: 0.9rem;
-      font-weight: 600;
-
-      ::placeholder {
-        color: white;
-      }
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .search-icon {
-      transition: 0.2s ease;
-      cursor: pointer;
-      font-size: 1.8rem;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
+  @media (min-width: 500px){
+    margin-left: 1rem;
+    .dropdown{
+        width: 40%;
+       }
   }
 
   @media (min-width: 768px) {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     align-items: flex-start;
     justify-content: space-between;
     padding: 1rem 3rem;
@@ -123,8 +92,5 @@ export const SearchStyling = styled.nav`
       }
     }
 
-    .searchbar {
-      width: 25%;
-    }
   }
 `;

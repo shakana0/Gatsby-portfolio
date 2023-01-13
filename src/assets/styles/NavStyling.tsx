@@ -21,25 +21,26 @@ export const NavStyling = styled.header`
       padding: 0 0 1rem 0;
       margin: 0;
 
-      li {
-        list-style: none;
-        padding: 1rem 0;
-        cursor: pointer;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid transparent;
+      a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
         transition: 0.2s ease;
+        width: 100%;
+        border-bottom: 1px solid transparent;
+        padding: 1rem 0;
         &:hover {
           border-bottom: 1px solid #d1d1d1;
           background-color: #14141476;
         }
-        a {
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: white;
-          text-decoration: none;
-          text-align: left;
+
+        li {
+          list-style: none;
+          cursor: pointer;
+          width: 100%;
+          text-align: center;
+
         }
       }
     }

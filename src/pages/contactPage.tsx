@@ -1,11 +1,11 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { ContactStyling } from "../assets/styles/ContactStyling";
 import { graphql } from "gatsby";
 import { ContactDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import { GlobalStateContext } from "../context/GlobalContextProviser";
 
 
 type GraphQlResult = {
@@ -18,23 +18,30 @@ type GraphQlResult = {
 
 const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const contactData = data.allContentfulContactPage.edges[0];
-console.log(contactData.node.contactInformation[0].socialMediaIcon)
+  const globalStateContext: any = useContext(GlobalStateContext);
 
+  console.log(globalStateContext, "globalcontext");
   return (
     <Layout>
-      {/* <Nav /> */}
       <ContactStyling>
         <h1>{contactData.node.pageName}</h1>
         <div className="container">
           <section className="profile-img-container">
             {/* <img src={contactData.node.profileImage.file.url} alt="Profile Image" /> */}
-            <GatsbyImage image={getImage(contactData.node.profileImage)} alt="Profile Image" />
+            <GatsbyImage
+              image={getImage(contactData.node.profileImage)}
+              alt="Profile Image"
+            />
           </section>
           <section className="contact-info">
             {contactData.node.contactInformation.map((info, index) => (
               <span key={index}>
                 {/* <img src={info.socialMediaIcon.file.url} alt="" /> */}
-                <GatsbyImage image={getImage(info.socialMediaIcon)} key={index} alt="Social media Icon" />
+                <GatsbyImage
+                  image={getImage(info.socialMediaIcon)}
+                  key={index}
+                  alt="Social media Icon"
+                />
 
                 <a href="#">{info.socialMediaLink}</a>
               </span>

@@ -1,12 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { IndexStyling } from "../assets/styles/IndexStyling";
 import { graphql } from "gatsby";
-import { HomePageDataType, categoryData } from "../interface/pageInterface";
-// import { Search } from "../components/Search";
+import { HomePageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
-import { GlobalStateContext } from "../context/GlobalContextProviser";
-import { BgImage } from "gbimage-bridge";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 
 type GraphQlResult = {
@@ -15,20 +12,6 @@ type GraphQlResult = {
       node: HomePageDataType;
     }[];
   };
-  allContentfulCategory?: {
-    edges: {
-      node: categoryData;
-    }[];
-  };
-};
-
-let tempData: any = [];
-const Context = () => {
-  const globalStateContext = useContext(GlobalStateContext);
-  useEffect(() => {
-    globalStateContext.setCategories(tempData);
-  }, []);
-  return <></>;
 };
 
 const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
@@ -36,14 +19,6 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   //getImage is a function that makes the code easier to read.
   //It takes a File and returns file.childImageSharp.gatsbyImageData,
   //which will later be passed to the GatsbyImage component.
-  // const backgroundImageStack = [
-  //   getImage(homeData.node.desktopHeroImage),
-  //   {
-  //     ...getImage(homeData.node.mobileHeroImage),
-  //     media: `(max-width: 500px)`,
-  //   },
-  // ];
-
   const images = withArtDirection(getImage(homeData.node.desktopHeroImage), [
     {
       media: "(max-width: 500px)",
@@ -51,24 +26,12 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
     },
   ]);
 
-  //saving categories in a varible
-  const categories = data.allContentfulCategory?.edges;
-  //mapping to get rid of the nodes in the array and any dublicates
-  categories?.map((category) => {
-    // tempData.push(category);
-    if (!tempData.includes(category.node)) {
-      tempData.push(category.node);
-    }
-  });
   return (
     <Layout>
-      <Context />
-      {/* <Search /> */}
       <IndexStyling>
-      <div className="bg-image-wrapper" style={{ display: "grid" }}>
-        {/* <div className="bg-image-wrapper"> */}
+        <div className="bg-image-wrapper" style={{ display: "grid" }}>
           <GatsbyImage
-          className="gatsby-img"
+            className="gatsby-img"
             style={{
               gridArea: "1/1",
               opacity: "0.6",
@@ -84,10 +47,10 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
               position: "relative",
             }}
           >
-          <h1>{homeData.node.heading}</h1>
-          <p>{homeData.node.presentationText}</p>
+            <h1>{homeData.node.heading}</h1>
+            <p>{homeData.node.presentationText}</p>
           </div>
-        </div> 
+        </div>
       </IndexStyling>
     </Layout>
   );
@@ -115,14 +78,6 @@ export const AllHomeQury = graphql`
             )
           }
           presentationText
-        }
-      }
-    }
-    allContentfulCategory {
-      edges {
-        node {
-          categoryName
-          slug
         }
       }
     }
