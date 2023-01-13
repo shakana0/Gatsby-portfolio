@@ -16,42 +16,29 @@ export const ProjectsStyling = styled.main`
       color: white;
       text-decoration: none;
       width: 70%;
-      /* border: 1px solid blue; */
       margin-bottom: 2rem;
-    }
 
-    article {
+      article {
       padding: 3rem 2rem;
       border: 1px solid #8a8a8a;
       height: 260px;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
 
       &:hover{
         background-color: #5e008029;
       }
       .gatsby-image-wrapper{
-        overflow: visible;
+        /* overflow: visible; */
+        /* height: 60%; */
         img{
-          /* height: auto; */
+          height: auto;
         }
       }
-
-      /* picture {
-        border: 2px solid white;
-          width: 400px;
-          height: 100px;
-        source {
-          width: 100%;
-          height: 70%;
-        }
-      }
-
-      img {
-        width: 100%;
-        /* height: auto; */
-        /* height: 70%;
-        padding-bottom: 2rem;
-      }   */
+    }
     }
   }
 

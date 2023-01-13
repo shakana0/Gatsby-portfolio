@@ -7,23 +7,17 @@ export const SingleProjectStyling = styled.main`
   justify-content: center;
   flex-direction: column;
   h1 {
-    margin-top: 0;
+    margin: 0;
   }
   article {
     width: 70%;
+    margin-top: 3rem;
 
     .gatsby-image-wrapper{
       overflow: visible;
         img{
           height: auto;
         }
-    }
-
-    img {
-      /* width: 300px; */
-      /* width: 100%;
-      height: auto;
-      margin-bottom: 1rem; */
     }
     p {
       margin-top: 3rem;
