@@ -13,12 +13,22 @@ export const SingleProjectStyling = styled.main`
     width: 70%;
     margin-top: 3rem;
 
-    .gatsby-image-wrapper{
+    .mySwiper {
+      /* border: 2px solid yellow; */
+      .Swiper-slide {
+        /* border: 2px solid blue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .gatsby-image-wrapper {
       overflow: visible;
-        img{
-          height: auto;
-          width: 100%;
-        }
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
     p {
       margin-top: 3rem;
