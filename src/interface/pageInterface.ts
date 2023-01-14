@@ -164,6 +164,8 @@ export interface projectDataType {
 
 //ContentfulCategory interface
 export interface categoryData {
+  seoDescription: string;
+  seoTitle: string;
   categoryName: string;
   slug: string;
   project: [
@@ -177,12 +179,12 @@ export interface categoryData {
   ];
 }
 
-export interface allMarkdownRemarkDataType {
-  id: number;
-  path: string;
-  title: string;
-  body: string;
-}
+// export interface allMarkdownRemarkDataType {
+//   id: number;
+//   path: string;
+//   title: string;
+//   body: string;
+// }
 
 export interface siteMetadataType {
   siteMetadata: {

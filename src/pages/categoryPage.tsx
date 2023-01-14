@@ -1,11 +1,11 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
-import { CategoyStyling } from "../assets/styles/CategoryStyling"
+import type { HeadFC, PageProps, HeadProps } from "gatsby";
+import { CategoyStyling } from "../assets/styles/CategoryStyling";
 import { Link, graphql } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import { SEO } from "../components/SEO";
 
 type GraphQlResult = {
   contentfulCategory: categoryData;
@@ -18,14 +18,18 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
       <CategoyStyling>
         <h1>{category.categoryName}</h1>
         <div className="conatiner">
-        {category.project.map((project, index) => (
-          <Link to={`/project/${project.slug}`} key={index}>
-            <article>
-              <GatsbyImage image={getImage(project.projectThumbnail)} key={index}  alt="Project Thumbnail Image" />
-              <h3>{project.projectName}</h3>
-            </article>
-          </Link>
-        ))}
+          {category.project.map((project, index) => (
+            <Link to={`/project/${project.slug}`} key={index}>
+              <article>
+                <GatsbyImage
+                  image={getImage(project.projectThumbnail)}
+                  key={index}
+                  alt="Project Thumbnail Image"
+                />
+                <h3>{project.projectName}</h3>
+              </article>
+            </Link>
+          ))}
         </div>
       </CategoyStyling>
     </Layout>
@@ -33,7 +37,13 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default CategoryPage;
-export const Head: HeadFC = () => <title>Category Page</title>;
+// export const Head: HeadFC = () => <title>Category Page</title>;
+export function Head({ data }: HeadProps<GraphQlResult>) {
+  const { seoTitle, seoDescription } = data.contentfulCategory
+  return (
+    <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
+  );
+}
 
 //GraphQl query
 export const AllAboutQury = graphql`
@@ -44,12 +54,11 @@ export const AllAboutQury = graphql`
         projectName
         projectThumbnail {
           gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
-          # file {
-          #   url
-          # }
         }
         slug
       }
+      seoDescription
+      seoTitle
     }
   }
 `;

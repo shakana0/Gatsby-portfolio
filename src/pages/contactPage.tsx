@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { PageProps, HeadProps } from "gatsby";
 import { ContactStyling } from "../assets/styles/ContactStyling";
 import { graphql } from "gatsby";
 import { ContactPageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { GlobalStateContext } from "../context/GlobalContextProviser";
-
+import { SEO } from "../components/SEO";
 
 type GraphQlResult = {
   allContentfulContactPage: {
@@ -18,9 +17,6 @@ type GraphQlResult = {
 
 const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const contactData = data.allContentfulContactPage.edges[0];
-  const globalStateContext: any = useContext(GlobalStateContext);
-
-  console.log(globalStateContext, "globalcontext");
   return (
     <Layout>
       <ContactStyling>
@@ -56,7 +52,14 @@ const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 //<a target="_blank" href="https://icons8.com/icon/85911/iphone-se">iPhone SE</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 export default ContactPage;
 
-export const Head: HeadFC = () => <title>Contact Page</title>;
+// export const Head: HeadFC = () => <title>Contact Page</title>;
+export function Head({ data }: HeadProps<GraphQlResult>) {
+  const { seoTitle, seoDescription } =
+    data.allContentfulContactPage.edges[0].node;
+  return (
+    <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
+  );
+}
 
 //GraphQl query
 export const AllContactQury = graphql`
@@ -74,6 +77,8 @@ export const AllContactQury = graphql`
             }
             socialMediaLink
           }
+          seoDescription
+          seoTitle
         }
       }
     }

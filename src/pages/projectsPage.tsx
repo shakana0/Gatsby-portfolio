@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { HeadFC, PageProps, HeadProps } from "gatsby";
 import { ProjectsStyling } from "../assets/styles/ProjectsStyling";
 import { Link, graphql } from "gatsby";
 import {
@@ -11,6 +11,7 @@ import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
 import { CategoryNav } from "../components/CategoryNav";
+import { SEO } from "../components/SEO";
 
 type GraphQlResult = {
   allContentfulProjectsPage: {
@@ -79,7 +80,13 @@ const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default ProjectsPage;
-export const Head: HeadFC = () => <title>Projects Page</title>;
+// export const Head: HeadFC = () => <title>Projects Page</title>;
+export function Head({ data }: HeadProps<GraphQlResult>) {
+  const { seoTitle, seoDescription } = data.allContentfulProjectsPage.edges[0].node;
+  return (
+    <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
+  );
+}
 
 //GraphQl query
 export const AllProjectsQury = graphql`
@@ -104,7 +111,6 @@ export const AllProjectsQury = graphql`
           projectScreenshots {
             gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
           }
-          projectUrl
         }
       }
     }

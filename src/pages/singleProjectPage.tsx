@@ -1,10 +1,11 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { HeadFC, PageProps, HeadProps } from "gatsby";
 import { SingleProjectStyling } from "../assets/styles/SingleProjectStyling";
 import { graphql } from "gatsby";
 import { projectDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { SEO } from "../components/SEO";
 
 
 
@@ -39,7 +40,13 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default SingleProjectPage;
-export const Head: HeadFC = () => <title>Project Page</title>;
+// export const Head: HeadFC = () => <title>Project Page</title>;
+export function Head({ data }: HeadProps<GraphQlResult>) {
+  const { projectName, seoDescription } = data.contentfulProject
+  return (
+    <SEO siteData={{ seoTitle: projectName, seoDescription: seoDescription }} />
+  );
+}
 
 //GraphQl query
 export const SingleProjecttQury = graphql`
@@ -48,14 +55,12 @@ export const SingleProjecttQury = graphql`
       projectName
       projectScreenshots {
         gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
-        # file {
-        #   url
-        # }
       }
       description {
         description
       }
       projectUrl
+      seoDescription
     }
   }
 `;

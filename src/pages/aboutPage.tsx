@@ -1,12 +1,12 @@
 import React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { PageProps, HeadProps } from "gatsby";
 import { AboutPageStyling } from "../assets/styles/AboutPageStyling";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { AboutMePageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
-
+import { SEO } from "../components/SEO";
 
 type GraphQlResult = {
   allContentfulAboutMePage: {
@@ -32,7 +32,7 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
     <Layout>
       {/* <Nav /> */}
       <AboutPageStyling>
-      <h1>{aboutMeData.node.pageName}</h1>
+        <h1>{aboutMeData.node.pageName}</h1>
         <div className="container">
           <section className="info">
             <article>
@@ -74,7 +74,7 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
             <h2>Skills</h2>
             <ul>
               {aboutMeData.node.skills.map((skill, index) => (
-                  <li key={index}>{skill}</li>
+                <li key={index}>{skill}</li>
               ))}
             </ul>
           </section>
@@ -85,12 +85,20 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default AboutPage;
-export const Head: HeadFC = () => <title>About Page</title>;
+// export const Head: HeadFC = () => <title>About Page</title>;
+
+export function Head({ data }: HeadProps<GraphQlResult>) {
+  const { seoTitle, seoDescription } =
+    data.allContentfulAboutMePage.edges[0].node;
+  return (
+    <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
+  );
+}
 
 //GraphQl query
 export const AllAboutQury = graphql`
   query MyQuery {
-    allContentfulAboutMePage{
+    allContentfulAboutMePage {
       edges {
         node {
           pageName
@@ -119,16 +127,18 @@ export const AllAboutQury = graphql`
             }
           }
           skills
+          seoDescription
+          seoTitle
         }
       }
     }
-  #   allContentfulEducation(sort: {endDate: DESC, }) {
-  #   edges {
-  #     node {
-  #       schoolName
-  #       endDate
-  #     }
-  #   }
-  # }
+    #   allContentfulEducation(sort: {endDate: DESC, }) {
+    #   edges {
+    #     node {
+    #       schoolName
+    #       endDate
+    #     }
+    #   }
+    # }
   }
 `;
