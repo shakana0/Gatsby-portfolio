@@ -1,10 +1,11 @@
 import React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { HeadFC, PageProps, HeadProps } from "gatsby";
 import { IndexStyling } from "../assets/styles/IndexStyling";
 import { graphql } from "gatsby";
-import { HomePageDataType } from "../interface/pageInterface";
+import { HomePageDataType, siteMetadataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
+import { SEO, Hej } from "../components/SEO";
 
 type GraphQlResult = {
   allContentfulHomePage: {
@@ -12,6 +13,7 @@ type GraphQlResult = {
       node: HomePageDataType;
     }[];
   };
+  site: siteMetadataType;
 };
 
 const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
@@ -57,8 +59,26 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default IndexPage;
+export const Head: HeadFC = ({data}) => {
+  return(
+    // @ts-ignore 
+    // <SEO />
+    <Hej siteData={data}/>
+  )
+};
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+
+
+// export function Head({data}: HeadProps<GraphQlResult>) {
+//   return (
+//    <>
+//     <title>{data.site.siteMetadata.title}</title>
+//     <meta name="description" content={data.site.siteMetadata.description}></meta>
+//     <meta charSet={data.site.siteMetadata.charSet} />
+//     <meta name="viewport" content={data.site.siteMetadata.viewport} />
+//    </>
+//   )
+// }
 
 //GraphQl query
 export const AllHomeQury = graphql`
@@ -79,6 +99,16 @@ export const AllHomeQury = graphql`
           }
           presentationText
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        author
+        description
+        siteUrl
+        charSet
+        viewport
       }
     }
   }

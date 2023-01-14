@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { ContactStyling } from "../assets/styles/ContactStyling";
 import { graphql } from "gatsby";
-import { ContactDataType } from "../interface/pageInterface";
+import { ContactPageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
@@ -11,7 +11,7 @@ import { GlobalStateContext } from "../context/GlobalContextProviser";
 type GraphQlResult = {
   allContentfulContactPage: {
     edges: {
-      node: ContactDataType;
+      node: ContactPageDataType;
     }[];
   };
 };

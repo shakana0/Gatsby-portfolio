@@ -28,56 +28,61 @@ interface gatsbyImageDataType {
 export interface HomePageDataType {
   heading: string;
   mobileHeroImage: {
-    placeholderUrl: string;
-    gatsbyImageData: {
-      images: {
-        sources: [
-          {
-            srcSet: string;
-            sizes: string;
-            type: string;
-          }
-        ];
-        fallback: {
-          src: string;
-          srcSet: string;
-        };
-      };
-      placeholder: {
-        fallback: string;
-        width: number;
-        height: number;
-      };
-    };
+    gatsbyImageData: gatsbyImageDataType;
+
+    // placeholderUrl: string;
+    // gatsbyImageData: {
+    //   images: {
+    //     sources: [
+    //       {
+    //         srcSet: string;
+    //         sizes: string;
+    //         type: string;
+    //       }
+    //     ];
+    //     fallback: {
+    //       src: string;
+    //       srcSet: string;
+    //     };
+    //   };
+    //   placeholder: {
+    //     fallback: string;
+    //     width: number;
+    //     height: number;
+    //   };
+    // };
   };
   desktopHeroImage: {
-    gatsbyImageData: {
-      images: {
-        sources: [
-          {
-            srcSet: string;
-            sizes: string;
-            type: string;
-          }
-        ];
-        fallback: {
-          src: string;
-          srcSet: string;
-        };
-      };
-      placeholder: {
-        fallback: string;
-        width: number;
-        height: number;
-      };
-    };
+    gatsbyImageData: gatsbyImageDataType;
+    // gatsbyImageData: {
+    //   images: {
+    //     sources: [
+    //       {
+    //         srcSet: string;
+    //         sizes: string;
+    //         type: string;
+    //       }
+    //     ];
+    //     fallback: {
+    //       src: string;
+    //       srcSet: string;
+    //     };
+    //   };
+    //   placeholder: {
+    //     fallback: string;
+    //     width: number;
+    //     height: number;
+    //   };
+    // };
   };
   presentationText: string;
-  extensions: object;
+  // extensions: object;
+  seoDescription: string;
+  seoTitle: string;
 }
 
 // allContentfulAboutMePage interface
-export interface AboutMeDataType {
+export interface AboutMePageDataType {
   pageName: string;
   presentationText: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   // presentationText: any
@@ -107,10 +112,12 @@ export interface AboutMeDataType {
     }
   ];
   skills: string[];
+  seoDescription: string;
+  seoTitle: string;
 }
 
 // allContentfulContactPage interface
-export interface ContactDataType {
+export interface ContactPageDataType {
   pageName: string;
   profileImage: {
     gatsbyImageData: gatsbyImageDataType;
@@ -125,6 +132,15 @@ export interface ContactDataType {
       socialMediaLink: string;
     }
   ];
+  seoDescription: string;
+  seoTitle: string;
+}
+
+//allContentfulProjectsPage interface
+export interface projectsPageDataType {
+  pageName: string;
+  seoDescription: string;
+  seoTitle: string;
 }
 
 //allContentfulProject interface
@@ -143,6 +159,7 @@ export interface projectDataType {
     description: string;
   };
   projectUrl: string;
+  seoDescription: string;
 }
 
 //ContentfulCategory interface
@@ -160,9 +177,20 @@ export interface categoryData {
   ];
 }
 
-export interface allMarkdownRemarkDataType{
-  id: number
-  path: string,
-  title: string,
-  body: string,
+export interface allMarkdownRemarkDataType {
+  id: number;
+  path: string;
+  title: string;
+  body: string;
+}
+
+export interface siteMetadataType {
+  siteMetadata: {
+    title: string;
+    author?: string;
+    description?: string;
+    siteUrl?: string;
+    charSet?: string;
+    viewport?: string;
+  };
 }

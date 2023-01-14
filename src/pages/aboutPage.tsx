@@ -4,14 +4,14 @@ import { AboutPageStyling } from "../assets/styles/AboutPageStyling";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { AboutMeDataType } from "../interface/pageInterface";
+import { AboutMePageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 
 
 type GraphQlResult = {
   allContentfulAboutMePage: {
     edges: {
-      node: AboutMeDataType;
+      node: AboutMePageDataType;
     }[];
   };
 };

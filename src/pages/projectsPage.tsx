@@ -2,13 +2,22 @@ import React, { useEffect, useContext } from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { ProjectsStyling } from "../assets/styles/ProjectsStyling";
 import { Link, graphql } from "gatsby";
-import { projectDataType, categoryData } from "../interface/pageInterface";
+import {
+  projectDataType,
+  categoryData,
+  projectsPageDataType,
+} from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
 import { CategoryNav } from "../components/CategoryNav";
 
 type GraphQlResult = {
+  allContentfulProjectsPage: {
+    edges: {
+      node: projectsPageDataType;
+    }[];
+  };
   allContentfulProject: {
     edges: {
       node: projectDataType;
@@ -32,6 +41,8 @@ const Context = () => {
 
 const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const projectsData = data.allContentfulProject.edges;
+  const projectsPageData = data.allContentfulProjectsPage.edges[0]
+
   //saving categories in a varible
   const categories = data.allContentfulCategory?.edges;
   //mapping to get rid of the nodes in the array and any dublicates
@@ -47,7 +58,7 @@ const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
       <ProjectsStyling>
         <Context />
         <CategoryNav />
-        <h1>Projects</h1>
+        <h1>{projectsPageData.node.pageName}</h1>
         <div className="container">
           {projectsData.map((project, index) => (
             <Link to={`/project/${project.node.slug}`} key={index}>
@@ -73,6 +84,15 @@ export const Head: HeadFC = () => <title>Projects Page</title>;
 //GraphQl query
 export const AllProjectsQury = graphql`
   query MyQuery {
+    allContentfulProjectsPage {
+      edges {
+        node {
+          pageName
+          seoDescription
+          seoTitle
+        }
+      }
+    }
     allContentfulProject {
       edges {
         node {
@@ -84,9 +104,6 @@ export const AllProjectsQury = graphql`
           projectScreenshots {
             gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
           }
-          # description {
-          #   description
-          # }
           projectUrl
         }
       }
