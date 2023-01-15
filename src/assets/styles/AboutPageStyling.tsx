@@ -5,35 +5,39 @@ export const AboutPageStyling = styled.main`
   li {
     list-style: none;
   }
-
-  .container {
-    .skills {
-      padding-top: 2rem;
+  h1{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  .skills-wrapper {
+    .other-skills {
+      margin-top: 3rem;
       ul {
         padding: 1rem 0;
         display: flex;
         flex-wrap: wrap;
-        /* border: 1px solid #545454; */
-        /* background-color: #5351512b; */
         background-color: #9393932b;
+        border-bottom: 1px solid #7a7a7a;
         li {
           padding: 0.5rem;
           margin: 0.5rem;
         }
       }
     }
+  }
 
+  .container {
+    display: flex;
+    flex-direction: column;
     .education,
     .experience {
       padding: 1.5rem 0;
       box-sizing: border-box;
       div {
         border: none;
-        /* border-bottom: 1px solid #545454; */
         border-bottom: 1px solid #7a7a7a;
-        /* background-color: #5351512b; */
         background-color: #9393932b;
-        padding: .8rem;
+        padding: 0.8rem;
         margin: 1rem 0;
 
         h4 {
@@ -47,13 +51,10 @@ export const AboutPageStyling = styled.main`
         .date {
           display: flex;
           justify-content: space-between;
-          /* border: 1px solid #545454; */
-          /* min-width: 45%; */
           max-width: 180px;
           p {
             font-size: 0.8rem;
             color: #bdbdbd;
-            /* padding-right: .3rem; */
           }
         }
         .job-description {
@@ -64,35 +65,54 @@ export const AboutPageStyling = styled.main`
     }
   }
 
-  @media (min-width: 768px) {
-    .container {
+  .skill-container {
+    background-color: #b7abc4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+    .skill {
       display: flex;
-      justify-content: space-between;
-      .skills {
-        width: 20%;
-        /* border: 1px solid white; */
-        padding-top: 0;
-        ul {
-          display: flex;
-          flex-wrap: nowrap;
-          flex-direction: column;
-          /* align-items: center; */
-
-          li{
-            padding-bottom: 2rem;
-          }
-        }
-
-        h2 {
-          margin-top: 0;
-          text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 1rem;
+      cursor: pointer;
+      &:hover {
+        p {
+          opacity: 1;
         }
       }
+      p {
+        color: black;
+        margin-top: 0;
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+
+    .skills-wrapper {
+      width: 30%;
+      height: 70%;
+      justify-content: space-evenly;
+    }
+    .container {
+      width: 60%;
+      /* justify-content: space-between; */      
       .info {
-        width: 70%;
-        article{
-          padding: 0 4rem 4rem 0;
+        article {
+          padding: 0 2rem 2rem 0;
+          p{
+            margin: 0;
+          }
         }
+      }
+      .experience{
+        padding-bottom: 0;
       }
     }
     .education,
@@ -101,7 +121,6 @@ export const AboutPageStyling = styled.main`
       flex-wrap: wrap;
       justify-content: space-between;
       h2 {
-        /* display: block; */
         width: 100%;
       }
       div {

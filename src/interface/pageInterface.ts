@@ -114,6 +114,16 @@ export interface AboutMePageDataType {
   skills: string[];
   seoDescription: string;
   seoTitle: string;
+  skillIcons: [
+    {
+      skillTitle: string;
+      icon:{
+        file: {
+          url: string;
+        };
+      }
+    }
+  ];
 }
 
 // allContentfulContactPage interface
@@ -155,6 +165,7 @@ export interface projectDataType {
       gatsbyImageData: gatsbyImageDataType;
     }
   ];
+  technologies: [string];
   description: {
     description: string;
   };

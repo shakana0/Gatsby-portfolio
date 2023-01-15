@@ -10,12 +10,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 // import required modules
-import { Autoplay, Pagination , Navigation, Scrollbar, A11y} from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 type GraphQlResult = {
   contentfulProject: projectDataType;
 };
-const hej = ["hej", "på", "dig"]
 
 const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const projectData = data.contentfulProject;
@@ -24,38 +23,49 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
       <SingleProjectStyling>
         <h1>{projectData.projectName}</h1>
         <article>
-        <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {projectData.projectScreenshots.map((screenshot, index) => (
-                <SwiperSlide key={index} className="Swiper-slide">
-                  <GatsbyImage
-                    image={getImage(screenshot)}
-                    key={index}
-                    alt="Project Screenshot Image"
-                  />
-                </SwiperSlide>
-              ))}
-      </Swiper>
-          <p>{projectData.description.description}</p>
-          <a
-            href={projectData.projectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <section>
+            <p>{projectData.description.description}</p>
+            <a
+              href={projectData.projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Check out Project!</button>
+            </a>
+          </section>
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
           >
-            Check out Project!
-          </a>
+            {projectData.projectScreenshots.map((screenshot, index) => (
+              <SwiperSlide key={index} className="Swiper-slide">
+                <GatsbyImage
+                  image={getImage(screenshot)}
+                  key={index}
+                  alt="Project Screenshot Image"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <section className="technologies">
+            <h2>Technologies</h2>
+            <ul>
+            {projectData.technologies.map((technology, index) => (
+              <li key={index}>{technology}</li>
+            ))}
+            </ul>
+          </section>
         </article>
       </SingleProjectStyling>
     </Layout>
@@ -79,6 +89,7 @@ export const SingleProjecttQury = graphql`
       projectScreenshots {
         gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
       }
+      technologies
       description {
         description
       }

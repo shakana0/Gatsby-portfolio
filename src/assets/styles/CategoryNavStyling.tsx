@@ -19,8 +19,6 @@ export const CategoryNavStyling = styled.nav`
       border: 1.5px solid #b30000;
       border-radius: 5px;
       background-color: #282829;
-      padding: 0.3rem 0;
-
       &:hover {
         background-color: #1a1a1a;
       }

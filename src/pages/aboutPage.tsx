@@ -30,48 +30,62 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   };
   return (
     <Layout>
-      {/* <Nav /> */}
       <AboutPageStyling>
-        <h1>{aboutMeData.node.pageName}</h1>
-        <div className="container">
+        <section className="container">
           <section className="info">
+            <h1>{aboutMeData.node.pageName}</h1>
             <article>
               {renderRichText(richText.presentationText, options)}
             </article>
-            <section className="education">
-              <h2>Education</h2>
-              {aboutMeData.node.education.map((education, index) => (
-                <div key={index}>
-                  <h4>{education.schoolName}</h4>
-                  <p>{education.degree}</p>
-                  <p>{education.subjectArea}</p>
-                  <span className="date">
-                    <p>{education.startDate}</p>—<p>{education.endDate}</p>
-                  </span>
-                </div>
-              ))}
-            </section>
-            <section className="experience">
-              <h2>Experience</h2>
-              {aboutMeData.node.experience.map((experience, index) => (
-                <div key={index}>
-                  <h4>{experience.role}</h4>
-                  <p>{experience.companyName}</p>
-                  <p>{experience.employmentType}</p>
-                  {/* <li>{experience.location}</li> */}
-                  <span className="date">
-                    <p>{experience.startDate}</p>—<p>{experience.endDate}</p>
-                  </span>
-                  <p className="job-description">
-                    {experience.jobDescription.jobDescription}
-                  </p>
-                </div>
-              ))}
-            </section>
           </section>
+          <section className="education">
+            <h2>Education</h2>
+            {aboutMeData.node.education.map((education, index) => (
+              <div key={index}>
+                <h4>{education.schoolName}</h4>
+                <p>{education.degree}</p>
+                <p>{education.subjectArea}</p>
+                <span className="date">
+                  <p>{education.startDate}</p>—<p>{education.endDate}</p>
+                </span>
+              </div>
+            ))}
+          </section>
+          <section className="experience">
+            <h2>Experience</h2>
+            {aboutMeData.node.experience.map((experience, index) => (
+              <div key={index}>
+                <h4>{experience.role}</h4>
+                <p>{experience.companyName}</p>
+                <p>{experience.employmentType}</p>
+                {/* <li>{experience.location}</li> */}
+                <span className="date">
+                  <p>{experience.startDate}</p>—<p>{experience.endDate}</p>
+                </span>
+                <p className="job-description">
+                  {experience.jobDescription.jobDescription}
+                </p>
+              </div>
+            ))}
+          </section>
+        </section>
 
-          <section className="skills">
-            <h2>Skills</h2>
+        <div className="skills-wrapper">
+          <h1>Skills</h1>
+          <ul className="skill-container">
+            {aboutMeData.node.skillIcons.map((skill, index) => (
+              <li className="skill" key={index}>
+                <img
+                  src={skill.icon.file.url}
+                  alt={`${skill.skillTitle} icon`}
+                  height="50px"
+                />
+                <p>{skill.skillTitle}</p>
+              </li>
+            ))}
+          </ul>
+          <section className="other-skills">
+            <h2>Other Skills</h2>
             <ul>
               {aboutMeData.node.skills.map((skill, index) => (
                 <li key={index}>{skill}</li>
@@ -129,16 +143,28 @@ export const AllAboutQury = graphql`
           skills
           seoDescription
           seoTitle
+          skillIcons {
+            skillTitle
+            icon {
+              file {
+                url
+              }
+            }
+          }
+          # skillIcons {
+          # file {
+          #   url
+          # }
         }
       }
     }
-    #   allContentfulEducation(sort: {endDate: DESC, }) {
-    #   edges {
-    #     node {
-    #       schoolName
-    #       endDate
-    #     }
-    #   }
-    # }
   }
+  #   allContentfulEducation(sort: {endDate: DESC, }) {
+  #   edges {
+  #     node {
+  #       schoolName
+  #       endDate
+  #     }
+  #   }
+  # }
 `;
