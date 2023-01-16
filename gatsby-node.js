@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
       //URL
       path: "/project/" + edge.node.slug,
       //Template
-      component: path.resolve("./src/pages/singleProjectPage.tsx"),
+      component: path.resolve("./src/templates/singleProject.tsx"),
       context: { slug: edge.node.slug },
     });
   });
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
       //URL
       path: "/category/" + edge.node.slug,
       //Template
-      component: path.resolve("./src/pages/categoryPage.tsx"),
+      component: path.resolve("./src/templates/categories.tsx"),
       context: { slug: edge.node.slug },
     });
   });

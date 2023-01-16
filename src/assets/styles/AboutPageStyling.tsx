@@ -17,7 +17,7 @@ export const AboutPageStyling = styled.main`
     .experience {
       padding: 1.5rem 0;
       box-sizing: border-box;
-      div {
+      article {
         border: none;
         border-bottom: 1px solid #7a7a7a;
         background-color: #9393932b;
@@ -150,7 +150,7 @@ export const AboutPageStyling = styled.main`
       h2 {
         width: 100%;
       }
-      div {
+      article {
         width: 45%;
         margin: 1rem 0;
       }

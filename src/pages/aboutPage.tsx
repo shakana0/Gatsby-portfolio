@@ -41,20 +41,20 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
           <section className="education">
             <h2>Education</h2>
             {aboutMeData.node.education.map((education, index) => (
-              <div key={index}>
+              <article key={index}>
                 <h4>{education.schoolName}</h4>
                 <p>{education.degree}</p>
                 <p>{education.subjectArea}</p>
                 <span className="date">
                   <p>{education.startDate}</p>—<p>{education.endDate}</p>
                 </span>
-              </div>
+              </article>
             ))}
           </section>
           <section className="experience">
             <h2>Experience</h2>
             {aboutMeData.node.experience.map((experience, index) => (
-              <div key={index}>
+              <article key={index}>
                 <h4>{experience.role}</h4>
                 <p>{experience.companyName}</p>
                 <p>{experience.employmentType}</p>
@@ -64,7 +64,7 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
                 <p className="job-description">
                   {experience.jobDescription.jobDescription}
                 </p>
-              </div>
+              </article>
             ))}
           </section>
         </section>
@@ -126,10 +126,6 @@ export const AllAboutQury = graphql`
             role
             companyName
             employmentType
-            location {
-              lat
-              lon
-            }
             startDate(fromNow: false)
             endDate(fromNow: false)
             jobDescription {
@@ -151,12 +147,4 @@ export const AllAboutQury = graphql`
       }
     }
   }
-  #   allContentfulEducation(sort: {endDate: DESC, }) {
-  #   edges {
-  #     node {
-  #       schoolName
-  #       endDate
-  #     }
-  #   }
-  # }
 `;

@@ -10,6 +10,7 @@ export const CategoryNavStyling = styled.nav`
     width: 70%;
     margin-bottom: 2rem;
     button {
+      padding: .3rem 0;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -42,7 +43,6 @@ export const CategoryNavStyling = styled.nav`
       padding: 0;
       margin: 0;
       li {
-        padding: 1rem;
         list-style: none;
         border: 1px solid #b30000a8;
         display: flex;
@@ -57,6 +57,9 @@ export const CategoryNavStyling = styled.nav`
           text-decoration: none;
           font-weight: 600;
           font-size: 0.9rem;
+          padding: 1rem;
+          width: 100%;
+          text-align: center;
         }
       }
     }

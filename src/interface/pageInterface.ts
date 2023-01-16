@@ -56,10 +56,6 @@ export interface AboutMePageDataType {
       role: string;
       companyName: string;
       employmentType: string;
-      location: {
-        lat: number;
-        lon: number;
-      };
       startDate: number;
       endDate: number;
       jobDescription: {
