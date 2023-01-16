@@ -78,6 +78,5 @@ export const CategoryNavStyling = styled.nav`
       width: 20%;
       margin: 0;
     }
-
   }
 `;

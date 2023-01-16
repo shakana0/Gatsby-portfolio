@@ -20,7 +20,6 @@ export const CategoryStyling = styled.main`
       margin-bottom: 3rem;
       text-decoration: none;
       color: white;
-
       article {
         border: 2px solid white;
         width: 100%;
@@ -41,24 +40,17 @@ export const CategoryStyling = styled.main`
             height: auto;
           }
         }
-
-        /* img {
-          width: 85%;
-          height: auto;
-        } */
       }
     }
   }
 
   @media (min-width: 500px) {
+    padding-top: 3rem;
     .container {
       a {
         width: 50%;
         article {
           height: 400px;
-          img {
-            /* width: 70%; */
-          }
         }
       }
     }

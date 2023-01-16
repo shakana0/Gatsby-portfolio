@@ -39,19 +39,14 @@ export const SingleProjectStyling = styled.main`
       }
     }
     .mySwiper {
+      padding-bottom: 3rem;
       .Swiper-slide {
         display: flex;
         justify-content: center;
         align-items: center;
       }
-      padding-bottom: 3rem;
-
       .swiper-pagination{
-        /* background-color: #b30000; */
-
         span{
-        /* color: purple;
-        padding: 2rem; */
         background-color: white;
       }
       }

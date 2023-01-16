@@ -29,54 +29,11 @@ export interface HomePageDataType {
   heading: string;
   mobileHeroImage: {
     gatsbyImageData: gatsbyImageDataType;
-
-    // placeholderUrl: string;
-    // gatsbyImageData: {
-    //   images: {
-    //     sources: [
-    //       {
-    //         srcSet: string;
-    //         sizes: string;
-    //         type: string;
-    //       }
-    //     ];
-    //     fallback: {
-    //       src: string;
-    //       srcSet: string;
-    //     };
-    //   };
-    //   placeholder: {
-    //     fallback: string;
-    //     width: number;
-    //     height: number;
-    //   };
-    // };
   };
   desktopHeroImage: {
     gatsbyImageData: gatsbyImageDataType;
-    // gatsbyImageData: {
-    //   images: {
-    //     sources: [
-    //       {
-    //         srcSet: string;
-    //         sizes: string;
-    //         type: string;
-    //       }
-    //     ];
-    //     fallback: {
-    //       src: string;
-    //       srcSet: string;
-    //     };
-    //   };
-    //   placeholder: {
-    //     fallback: string;
-    //     width: number;
-    //     height: number;
-    //   };
-    // };
   };
   presentationText: string;
-  // extensions: object;
   seoDescription: string;
   seoTitle: string;
 }
@@ -85,7 +42,6 @@ export interface HomePageDataType {
 export interface AboutMePageDataType {
   pageName: string;
   presentationText: RenderRichTextData<ContentfulRichTextGatsbyReference>;
-  // presentationText: any
   education: [
     {
       schoolName: string;

@@ -8,7 +8,6 @@ export const IndexStyling = styled.main`
     overflow: visible;
     height: fit-content;
     img {
-      /* height: auto; */
       min-height: 100vh;
     }
   }
@@ -26,17 +25,11 @@ export const IndexStyling = styled.main`
       margin: 4rem 0 0 0;
       text-align: center;
     }
-    /* position: relative;
-    place-items: center; */
+
   }
  
 
   @media (min-width: 500px) {
-    /* .gatsby-image-wrapper {
-    img{
-      min-height: 100vh;
-    }
-  } */
     .content-wrapper {
       h1 {
         font-size: 3rem;
@@ -52,9 +45,6 @@ export const IndexStyling = styled.main`
   }
 
   @media (min-width: 900px) {
-    /* .bg-image-wrapper {
-    min-height: 90vh;
-  } */
     .content-wrapper {
       h1 {
         font-size: 3.5rem;

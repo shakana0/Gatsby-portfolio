@@ -115,17 +115,7 @@ export const AboutPageStyling = styled.main`
       }
     }
   }
-
-  /* @media (min-width: 400px) {
-    .skill-container {
-      ::-webkit-scrollbar {
-        width: 50px;
-      }
-      ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-      }
-    }
-  } */
+  
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;
