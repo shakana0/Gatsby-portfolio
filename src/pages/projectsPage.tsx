@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import type { HeadFC, PageProps, HeadProps } from "gatsby";
+import type { PageProps, HeadProps } from "gatsby";
 import { ProjectsStyling } from "../assets/styles/ProjectsStyling";
 import { Link, graphql } from "gatsby";
 import {
@@ -80,7 +80,6 @@ const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default ProjectsPage;
-// export const Head: HeadFC = () => <title>Projects Page</title>;
 export function Head({ data }: HeadProps<GraphQlResult>) {
   const { seoTitle, seoDescription } = data.allContentfulProjectsPage.edges[0].node;
   return (

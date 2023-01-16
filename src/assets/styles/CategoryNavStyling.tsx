@@ -9,7 +9,6 @@ export const CategoryNavStyling = styled.nav`
   .dropdown {
     width: 70%;
     margin-bottom: 2rem;
-    
     button {
       display: flex;
       align-items: center;
@@ -22,7 +21,6 @@ export const CategoryNavStyling = styled.nav`
       &:hover {
         background-color: #1a1a1a;
       }
-
       .category-icon {
         font-size: 2rem;
         fill: white;
@@ -43,7 +41,6 @@ export const CategoryNavStyling = styled.nav`
       border-top: none;
       padding: 0;
       margin: 0;
-
       li {
         padding: 1rem;
         list-style: none;
@@ -55,7 +52,6 @@ export const CategoryNavStyling = styled.nav`
         &:hover {
           background-color: #0e0e258a;
         }
-
         a {
           color: white;
           text-decoration: none;
@@ -75,19 +71,12 @@ export const CategoryNavStyling = styled.nav`
 
   @media (min-width: 768px) {
     display: flex;
-    /* flex-direction: row; */
     align-items: flex-start;
     justify-content: space-between;
-    padding: 1rem 3rem;
-    
+    padding: 1rem 3rem;    
     .dropdown {
       width: 20%;
       margin: 0;
-
-      ul{
-        /* position: absolute; */
-        /* width: 15%; */
-      }
     }
 
   }

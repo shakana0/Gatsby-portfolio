@@ -9,8 +9,6 @@ const config: GatsbyConfig = {
     author: `Shakana`,
     description: `A portfolio website where you can lern more about me and check att my projects`,
     siteUrl: `https://www.yourdomain.tld`,
-    charSet: `utf-8`,
-    viewport: `width=device-width, initial-scale=1`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

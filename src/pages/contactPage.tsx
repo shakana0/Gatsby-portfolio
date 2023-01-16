@@ -50,8 +50,6 @@ const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default ContactPage;
-
-// export const Head: HeadFC = () => <title>Contact Page</title>;
 export function Head({ data }: HeadProps<GraphQlResult>) {
   const { seoTitle, seoDescription } =
     data.allContentfulContactPage.edges[0].node;

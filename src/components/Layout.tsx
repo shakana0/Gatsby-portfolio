@@ -20,7 +20,6 @@ export const Layout = ({ children }: childrenProps) => {
   return (
     <GlobalContextProvider>
       <Nav />
-      {/* <Search /> */}
       <>{children}</>
       {/* <main>{children}</main> */}
       <FooterStyling>
@@ -29,5 +28,3 @@ export const Layout = ({ children }: childrenProps) => {
     </GlobalContextProvider>
   );
 };
-
-//https://www.youtube.com/watch?v=rbtTb9hLYS8

@@ -28,7 +28,6 @@ export const SingleProjectStyling = styled.main`
           border: 1.5px solid #b30000;
           border-radius: 10px;
           background-color: #282829;
-          /* padding: 0.6rem 0.8rem; */
           padding: 1rem 1.4rem;
           color: white;
           font-weight: 700;
@@ -44,6 +43,17 @@ export const SingleProjectStyling = styled.main`
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      padding-bottom: 3rem;
+
+      .swiper-pagination{
+        /* background-color: #b30000; */
+
+        span{
+        /* color: purple;
+        padding: 2rem; */
+        background-color: white;
+      }
       }
     }
 

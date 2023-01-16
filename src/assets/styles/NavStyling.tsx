@@ -7,8 +7,7 @@ export const NavStyling = styled.header`
     fill: white;
   }
   nav {
-    background-color: #2a2a2a;
-
+    background-color: rgb(42, 42, 42);
     .hide-menu {
       display: none;
     }
@@ -20,27 +19,28 @@ export const NavStyling = styled.header`
       flex-direction: column;
       padding: 0 0 1rem 0;
       margin: 0;
-
-      a {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: white;
-        text-decoration: none;
-        transition: 0.2s ease;
+      li {
+        list-style: none;
+        cursor: pointer;
         width: 100%;
-        border-bottom: 1px solid transparent;
-        padding: 1rem 0;
-        &:hover {
-          border-bottom: 1px solid #d1d1d1;
-          background-color: #14141476;
-        }
-
-        li {
-          list-style: none;
-          cursor: pointer;
+        display: flex;
+        align-items: center;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: white;
+          text-decoration: none;
+          transition: 0.2s ease;
+          padding: 1.5rem 1rem;
           width: 100%;
-          text-align: center;
-
+          border-bottom: 1px solid transparent;
+          &:hover {
+            border-bottom: 1px solid #d1d1d1;
+            background-color: #14141476;
+          }
         }
       }
     }
@@ -57,12 +57,14 @@ export const NavStyling = styled.header`
 
       .hide-menu {
         display: flex;
+      }
+      ul{
         flex-direction: row;
         padding: 0;
         width: 60%;
-      }
-      li {
+        li {
         width: 20%;
+      }
       }
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 import type { PageProps, HeadProps } from "gatsby";
 import { IndexStyling } from "../assets/styles/IndexStyling";
 import { graphql } from "gatsby";
-import { HomePageDataType, siteMetadataType } from "../interface/pageInterface";
+import { HomePageDataType } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image";
 import { SEO } from "../components/SEO";
@@ -13,7 +13,6 @@ type GraphQlResult = {
       node: HomePageDataType;
     }[];
   };
-  site: siteMetadataType;
 };
 
 const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
@@ -87,16 +86,6 @@ export const AllHomeQury = graphql`
           seoDescription
           seoTitle
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-        author
-        description
-        siteUrl
-        charSet
-        viewport
       }
     }
   }

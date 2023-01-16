@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps, HeadProps } from "gatsby";
+import type { PageProps, HeadProps } from "gatsby";
 import { CategoryStyling } from "../assets/styles/CategoryStyling";
 import { Link, graphql } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
@@ -37,7 +37,6 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default CategoryPage;
-// export const Head: HeadFC = () => <title>Category Page</title>;
 export function Head({ data }: HeadProps<GraphQlResult>) {
   const { seoTitle, seoDescription } = data.contentfulCategory
   return (

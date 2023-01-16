@@ -9,6 +9,8 @@ import { SEO } from "../components/SEO";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
+import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
@@ -57,7 +59,6 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-
           <section className="technologies">
             <h2>Technologies</h2>
             <ul>
@@ -73,7 +74,6 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default SingleProjectPage;
-// export const Head: HeadFC = () => <title>Project Page</title>;
 export function Head({ data }: HeadProps<GraphQlResult>) {
   const { projectName, seoDescription } = data.contentfulProject;
   return (

@@ -68,7 +68,6 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
             ))}
           </section>
         </section>
-
         <div className="skills-wrapper">
           <h1>Skills</h1>
           <ul className="skill-container">
@@ -98,8 +97,6 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 };
 
 export default AboutPage;
-// export const Head: HeadFC = () => <title>About Page</title>;
-
 export function Head({ data }: HeadProps<GraphQlResult>) {
   const { seoTitle, seoDescription } =
     data.allContentfulAboutMePage.edges[0].node;
@@ -150,10 +147,6 @@ export const AllAboutQury = graphql`
               }
             }
           }
-          # skillIcons {
-          # file {
-          #   url
-          # }
         }
       }
     }

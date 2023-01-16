@@ -198,13 +198,4 @@ export interface categoryData {
 //   body: string;
 // }
 
-export interface siteMetadataType {
-  siteMetadata: {
-    title: string;
-    author?: string;
-    description?: string;
-    siteUrl?: string;
-    charSet?: string;
-    viewport?: string;
-  };
-}
+
