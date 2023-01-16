@@ -21,12 +21,16 @@ export const ContactStyling = styled.main`
   .contact-info {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 3rem 0;
 
-    span {
+    a{
       padding: 1rem 0;
-      display: flex;
-      align-items: center;
+      &:hover{
+          opacity: .5;
+          transform: scale(1.2);
+        }
       img {
         padding-right: 1rem;
       }

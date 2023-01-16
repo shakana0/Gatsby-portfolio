@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CategoyStyling = styled.main`
+export const CategoryStyling = styled.main`
   padding: 4rem 0;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@ export const CategoyStyling = styled.main`
     margin-bottom: 4rem;
   }
 
-  .conatiner {
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +52,7 @@ export const CategoyStyling = styled.main`
   }
 
   @media (min-width: 500px) {
-    .conatiner {
+    .container {
       a {
         width: 50%;
         article {
@@ -66,7 +66,7 @@ export const CategoyStyling = styled.main`
   }
 
   @media (min-width: 768px) {
-    .conatiner {
+    .container {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;

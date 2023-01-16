@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import type { PageProps, HeadProps } from "gatsby";
 import { ContactStyling } from "../assets/styles/ContactStyling";
 import { graphql } from "gatsby";
@@ -23,7 +23,6 @@ const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
         <h1>{contactData.node.pageName}</h1>
         <div className="container">
           <section className="profile-img-container">
-            {/* <img src={contactData.node.profileImage.file.url} alt="Profile Image" /> */}
             <GatsbyImage
               image={getImage(contactData.node.profileImage)}
               alt="Profile Image"
@@ -31,16 +30,17 @@ const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
           </section>
           <section className="contact-info">
             {contactData.node.contactInformation.map((info, index) => (
-              <span key={index}>
-                {/* <img src={info.socialMediaIcon.file.url} alt="" /> */}
+              <a
+                href={info.socialMediaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+              >
                 <GatsbyImage
                   image={getImage(info.socialMediaIcon)}
-                  key={index}
                   alt="Social media Icon"
                 />
-
-                <a href="#">{info.socialMediaLink}</a>
-              </span>
+              </a>
             ))}
           </section>
         </div>
@@ -49,7 +49,6 @@ const ContactPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   );
 };
 
-//<a target="_blank" href="https://icons8.com/icon/85911/iphone-se">iPhone SE</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 export default ContactPage;
 
 // export const Head: HeadFC = () => <title>Contact Page</title>;
@@ -76,6 +75,7 @@ export const AllContactQury = graphql`
               gatsbyImageData(formats: [JPG, WEBP, AVIF], placeholder: BLURRED)
             }
             socialMediaLink
+            contactInfoName
           }
           seoDescription
           seoTitle

@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { SearchStyling } from "../assets/styles/SearchStyling";
 import {CategoryNavStyling} from "../assets/styles/CategoryNavStyling";
 
 export const CategoryNav = () => {

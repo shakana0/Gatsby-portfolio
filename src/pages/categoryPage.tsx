@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { HeadFC, PageProps, HeadProps } from "gatsby";
-import { CategoyStyling } from "../assets/styles/CategoryStyling";
+import { CategoryStyling } from "../assets/styles/CategoryStyling";
 import { Link, graphql } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
 import { Layout } from "../components/Layout";
@@ -15,9 +15,9 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const category = data.contentfulCategory;
   return (
     <Layout>
-      <CategoyStyling>
+      <CategoryStyling>
         <h1>{category.categoryName}</h1>
-        <div className="conatiner">
+        <div className="container">
           {category.project.map((project, index) => (
             <Link to={`/project/${project.slug}`} key={index}>
               <article>
@@ -31,7 +31,7 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
             </Link>
           ))}
         </div>
-      </CategoyStyling>
+      </CategoryStyling>
     </Layout>
   );
 };

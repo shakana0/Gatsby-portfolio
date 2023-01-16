@@ -140,6 +140,7 @@ export interface ContactPageDataType {
         }
       ];
       socialMediaLink: string;
+      contactInfoName: string
     }
   ];
   seoDescription: string;
