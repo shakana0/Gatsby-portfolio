@@ -58,7 +58,6 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
                 <h4>{experience.role}</h4>
                 <p>{experience.companyName}</p>
                 <p>{experience.employmentType}</p>
-                {/* <li>{experience.location}</li> */}
                 <span className="date">
                   <p>{experience.startDate}</p>—<p>{experience.endDate}</p>
                 </span>

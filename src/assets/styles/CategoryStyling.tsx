@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const CategoryStyling = styled.main`
-  padding: 4rem 0;
   display: flex;
   justify-content: center;
   align-items: center;

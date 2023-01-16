@@ -4,11 +4,9 @@ html,
 body {
     margin: 0;
     padding: 0;
-    /* scroll-behavior: smooth; */
-
     color: white;
 }
-main{
+main {
     background-color: black;
     min-height: 100vh;
 }
@@ -24,6 +22,6 @@ a {
     font-family: "Roboto Flex", sans-serif;
 }
 
-p{
+p {
     line-height: 1.8;
 }
