@@ -22,6 +22,12 @@ const config: GatsbyConfig = {
         spaceId: `${process.env.CONTENFUL_SPACE_ID}`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
