@@ -6,7 +6,8 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { CategoryNavStyling } from "../assets/styles/CategoryNavStyling";
 
 export const CategoryNav = () => {
-  const globalStateContext = useContext(GlobalStateContext);
+  //getting the value from GlobalStateContext
+  const globalStateContext: any = useContext(GlobalStateContext);
   //using useState to toggle nav
   const [isShowMenu, setIsShowMenu] = useState(false);
   return (
