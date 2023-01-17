@@ -69,7 +69,7 @@ const AboutPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
           </section>
         </section>
         <div className="skills-wrapper">
-          <h1>Skills</h1>
+          <h2>Skills</h2>
           <ul className="skill-container">
             {aboutMeData.node.skillIcons.map((skill, index) => (
               <li className="skill" key={index}>

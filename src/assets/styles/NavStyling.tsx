@@ -11,7 +11,6 @@ export const NavStyling = styled.header`
     .hide-menu {
       display: none;
     }
-
     ul {
       display: flex;
       justify-content: center;

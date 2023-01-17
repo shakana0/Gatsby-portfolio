@@ -10,9 +10,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
 type GraphQlResult = {
   contentfulProject: projectDataType;
@@ -46,7 +45,7 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
               clickable: true,
             }}
             navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Pagination]}
             className="mySwiper"
           >
             {projectData.projectScreenshots.map((screenshot, index) => (

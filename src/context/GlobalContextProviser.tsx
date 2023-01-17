@@ -9,7 +9,7 @@ interface GlobalContectType {
   setCategories: React.Dispatch<React.SetStateAction<categoryData | null>>;
 }
 
-//don't have to optinal chain the props later/ null check
+//by using {} as GlobalContectType we won't have to optinal chain the props later/ null check
 export const GlobalStateContext = createContext({} as GlobalContectType);
 export const GlobalContextProvider = ({ children }: childrenProps) => {
   const [categories, setCategories] = useState<categoryData | null>(null);

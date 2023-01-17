@@ -18,7 +18,7 @@ type GraphQlResult = {
 const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const homeData = data.allContentfulHomePage.edges[0];
   //getImage is a function that makes the code easier to read.
-  //It takes a File and returns file.childImageSharp.gatsbyImageData,
+  //It takes a File and returns file.gatsbyImageData,
   //which will later be passed to the GatsbyImage component.
   const images = withArtDirection(getImage(homeData.node.desktopHeroImage), [
     {
@@ -59,8 +59,10 @@ const IndexPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 
 export default IndexPage;
 export function Head({ data }: HeadProps<GraphQlResult>) {
+  //destructuring seo data from data prop 
   const { seoTitle, seoDescription } = data.allContentfulHomePage.edges[0].node;
   return (
+    //sending seo data as objects through props on SEO component
     <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
   );
 }

@@ -30,11 +30,13 @@ type GraphQlResult = {
     }[];
   };
 };
-
+//creating a global array that will later hold contain temporary category data
 let tempData: any = [];
 const Context = () => {
+  //getting the value from GlobalStateContext
   const globalStateContext = useContext(GlobalStateContext);
   useEffect(() => {
+    //sending tempData by setCategories to GlobalStateContext
     globalStateContext.setCategories(tempData);
   }, []);
   return <></>;
@@ -43,7 +45,6 @@ const Context = () => {
 const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const projectsData = data.allContentfulProject.edges;
   const projectsPageData = data.allContentfulProjectsPage.edges[0]
-
   //saving categories in a varible
   const categories = data.allContentfulCategory?.edges;
   //mapping to get rid of the nodes in the array and any dublicates

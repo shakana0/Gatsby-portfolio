@@ -8,7 +8,6 @@ export const CategoryStyling = styled.main`
   h1 {
     margin-bottom: 4rem;
   }
-
   .container {
     display: flex;
     justify-content: center;

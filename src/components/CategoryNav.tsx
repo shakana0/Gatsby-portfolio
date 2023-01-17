@@ -3,10 +3,11 @@ import { Link } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
 import { GlobalStateContext } from "../context/GlobalContextProviser";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import {CategoryNavStyling} from "../assets/styles/CategoryNavStyling";
+import { CategoryNavStyling } from "../assets/styles/CategoryNavStyling";
 
 export const CategoryNav = () => {
-  const globalStateContext: any = useContext(GlobalStateContext);
+  const globalStateContext = useContext(GlobalStateContext);
+  //using useState to toggle nav
   const [isShowMenu, setIsShowMenu] = useState(false);
   return (
     <CategoryNavStyling>

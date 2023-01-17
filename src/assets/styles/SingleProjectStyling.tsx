@@ -12,7 +12,6 @@ export const SingleProjectStyling = styled.main`
   article {
     width: 70%;
     margin-top: 3rem;
-
     section {
       padding-bottom: 2rem;
       display: flex;

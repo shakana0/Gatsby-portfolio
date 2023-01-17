@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 export const ContactStyling = styled.main`
   padding: 2rem;
-
   h1{
     text-align: center;
   }
-
   .profile-img-container {
     display: flex;
     align-items: center;
@@ -17,14 +15,12 @@ export const ContactStyling = styled.main`
       margin: 0 auto;
     }
   }
-
   .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 3rem 0;
-
     a{
       padding: 1rem 0;
       &:hover{

@@ -21,7 +21,6 @@ export const Layout = ({ children }: childrenProps) => {
     <GlobalContextProvider>
       <Nav />
       <>{children}</>
-      {/* <main>{children}</main> */}
       <FooterStyling>
         <p>&copy; 2023</p>
       </FooterStyling>

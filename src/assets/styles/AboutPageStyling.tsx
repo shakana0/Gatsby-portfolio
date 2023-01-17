@@ -9,7 +9,6 @@ export const AboutPageStyling = styled.main`
     margin-bottom: 2rem;
     font-size: 2rem;
   }
-
   .container {
     display: flex;
     flex-direction: column;
@@ -50,6 +49,9 @@ export const AboutPageStyling = styled.main`
   }
 
   .skills-wrapper {
+    h2:nth-child(1) {
+      font-size: 1.7em;
+    }
     .other-skills {
       margin-top: 3rem;
       ul {
@@ -115,7 +117,7 @@ export const AboutPageStyling = styled.main`
       }
     }
   }
-  
+
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-between;

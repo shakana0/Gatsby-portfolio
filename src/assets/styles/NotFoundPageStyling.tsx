@@ -6,7 +6,6 @@ export const NotFoundPageStyling = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   .container {
     display: flex;
     align-items: center;

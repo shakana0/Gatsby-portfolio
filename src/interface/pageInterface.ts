@@ -143,11 +143,5 @@ export interface categoryData {
   ];
 }
 
-// export interface allMarkdownRemarkDataType {
-//   id: number;
-//   path: string;
-//   title: string;
-//   body: string;
-// }
 
 

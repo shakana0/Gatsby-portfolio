@@ -8,6 +8,7 @@ type GraphQlResult = {
 };
 
 export function SEO({ siteData }: GraphQlResult) {
+  //destructuring seoTile and seoDescription from siteData prop
   const { seoTitle, seoDescription } = siteData;
   return (
     <>
