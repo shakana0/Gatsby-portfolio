@@ -1,15 +1,16 @@
 import * as React from "react";
-import type { PageProps, HeadProps } from "gatsby";
+import { PageProps, HeadProps, Link } from "gatsby";
 import { SingleProjectStyling } from "../assets/styles/SingleProjectStyling";
 import { graphql } from "gatsby";
 import { projectDataType } from "../interface/pageInterface";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SEO } from "../components/SEO";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper";
 
@@ -22,6 +23,9 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   return (
     <Layout>
       <SingleProjectStyling>
+        <button className="back-btn" onClick={() => window.history.back()}>
+          <ArrowBackIosIcon className="back-icon" />
+        </button>
         <h1>{projectData.projectName}</h1>
         <article>
           <section>
@@ -61,9 +65,9 @@ const SingleProjectPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
           <section className="technologies">
             <h2>Technologies</h2>
             <ul>
-            {projectData.technologies.map((technology, index) => (
-              <li key={index}>{technology}</li>
-            ))}
+              {projectData.technologies.map((technology, index) => (
+                <li key={index}>{technology}</li>
+              ))}
             </ul>
           </section>
         </article>

@@ -119,8 +119,8 @@ export const AllAboutQury = graphql`
             schoolName
             degree
             subjectArea
-            startDate(fromNow: false)
-            endDate(formatString: "")
+            startDate
+            endDate
           }
           experience {
             role

@@ -44,7 +44,7 @@ const Context = () => {
 
 const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const projectsData = data.allContentfulProject.edges;
-  const projectsPageData = data.allContentfulProjectsPage.edges[0]
+  const projectsPageData = data.allContentfulProjectsPage.edges[0];
   //saving categories in a varible
   const categories = data.allContentfulCategory?.edges;
   //mapping to get rid of the nodes in the array and any dublicates
@@ -82,7 +82,8 @@ const ProjectsPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 
 export default ProjectsPage;
 export function Head({ data }: HeadProps<GraphQlResult>) {
-  const { seoTitle, seoDescription } = data.allContentfulProjectsPage.edges[0].node;
+  const { seoTitle, seoDescription } =
+    data.allContentfulProjectsPage.edges[0].node;
   return (
     <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
   );
@@ -100,7 +101,7 @@ export const AllProjectsQury = graphql`
         }
       }
     }
-    allContentfulProject {
+    allContentfulProject(sort: { projectName: ASC }) {
       edges {
         node {
           projectName
@@ -114,7 +115,7 @@ export const AllProjectsQury = graphql`
         }
       }
     }
-    allContentfulCategory {
+    allContentfulCategory(sort: { categoryName: ASC }) {
       edges {
         node {
           categoryName

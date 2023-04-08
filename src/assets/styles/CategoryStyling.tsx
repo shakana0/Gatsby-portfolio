@@ -5,6 +5,20 @@ export const CategoryStyling = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  .back {
+    margin-right: 70%;
+    transition: 0.2s ease;
+    .back-icon {
+      fill: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    :hover {
+      scale: calc(1.1);
+    }
+  }
+
   h1 {
     margin-bottom: 4rem;
   }

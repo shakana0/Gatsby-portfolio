@@ -6,6 +6,21 @@ export const SingleProjectStyling = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    margin-right: 70%;
+    transition: 0.2s ease;
+    .back-icon {
+      fill: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    :hover {
+      scale: calc(1.1);
+    }
+  }
   h1 {
     margin: 0;
   }
@@ -44,10 +59,10 @@ export const SingleProjectStyling = styled.main`
         justify-content: center;
         align-items: center;
       }
-      .swiper-pagination{
-        span{
-        background-color: white;
-      }
+      .swiper-pagination {
+        span {
+          background-color: white;
+        }
       }
     }
 
@@ -61,23 +76,23 @@ export const SingleProjectStyling = styled.main`
     .technologies {
       margin-top: 2rem;
       padding: 0 1rem;
-      h2{
+      h2 {
         margin-bottom: 2rem;
       }
-     ul{
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-     }
-     li{
-      list-style: none;
-      padding: .8rem 1.4rem;
-      border: 1.5px solid #b30000;
-      border-radius: 10px;
-      margin: 0 1rem 1rem 0;
-     }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+        padding: 0.8rem 1.4rem;
+        border: 1.5px solid #b30000;
+        border-radius: 10px;
+        margin: 0 1rem 1rem 0;
+      }
     }
   }
 

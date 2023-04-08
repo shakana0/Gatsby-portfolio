@@ -3,6 +3,7 @@ import type { PageProps, HeadProps } from "gatsby";
 import { CategoryStyling } from "../assets/styles/CategoryStyling";
 import { Link, graphql } from "gatsby";
 import { categoryData } from "../interface/pageInterface";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Layout } from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SEO } from "../components/SEO";
@@ -16,6 +17,9 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   return (
     <Layout>
       <CategoryStyling>
+        <Link to={`/projectsPage`} className="back">
+          <ArrowBackIosIcon className="back-icon" />
+        </Link>
         <h1>{category.categoryName}</h1>
         <div className="container">
           {category.project.map((project, index) => (
@@ -38,7 +42,7 @@ const CategoryPage: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
 
 export default CategoryPage;
 export function Head({ data }: HeadProps<GraphQlResult>) {
-  const { seoTitle, seoDescription } = data.contentfulCategory
+  const { seoTitle, seoDescription } = data.contentfulCategory;
   return (
     <SEO siteData={{ seoTitle: seoTitle, seoDescription: seoDescription }} />
   );
